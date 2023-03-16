@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hamza</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="../style.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous" />
+  </head>
+
+  <body id="set">
+    <nav id="nav_set">
+      <div id="just" class="container">
+        <h3>E-voting</h3>
+        <button onclick="">
+          <div id="carts"></div>
+          <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="col-12 m-5">
+        <input id="cnic" type="number" placeholder="Enter your CNIC" />
+        <input id="age" type="number" placeholder="Enter your age" />
+        <button onclick="sub()">Submit</button>
+
+        <div id="cnic_display"></div>
+        <div id="age_display"></div>
+      </div>
+
+      <div id="cart-setting">
+        <div id="box" class="col-4">
+          <img src="../1.png" />
+          <h4>PMLN</h4>
+          <button onclick="pmln()">
+            vote <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="box" class="col-4">
+          <img src="../2.png" />
+          <h4>PTI</h4>
+          <button onclick="pti()">
+            vote <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="box" class="col-4">
+          <img src="../3.png" />
+          <h4>PPP</h4>
+          <button onclick="ppp()">
+            vote <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      var id_data = new Array();
+      let id = 0;
+      let a = 0;
+      let pmln=0;
+      let pti=0;
+      let ppp=0;
+      if (age < 18) {
+      }
+      function sub() {
+        a = parseInt(document.getElementById("age").value);
+        id = document.getElementById("cnic").value;
+        id_data.push(id);
+
+        try {
+          if (a > 18) {
+            throw "You can vote";
+          }
+          if (a < 18) {
+            throw "You are Under age";
+          }
+        } catch (error) {
+          console.log(error);
+          show = document.getElementById("age_display");
+          show.innerHTML = `${error}`;
+        }
+        try {
+          if (id < 1111111111111 || id > 9999999999999) {
+            throw "invalid CNIC number";
+          }
+          if (id > 1111111111111 && id < 9999999999999) {
+            throw "Valid CNIC number";
+          }
+        } catch (error) {
+          show = document.getElementById("cnic_display");
+          show.innerHTML = `${error}`;
+        }
+      }
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
